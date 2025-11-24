@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #050510;
+  color: #f5f5f5;
+  font-family: "Yu Gothic", "游ゴシック", "Meiryo", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-container {
+  position: relative;
+}
+
+#gameCanvas {
+  background: radial-gradient(circle at top, #202040, #050510);
+  border: 2px solid #888;
+  border-radius: 8px;
+  display: block;
+}
+
+/* UI オーバーレイ */
+#ui-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* ゲーム操作の邪魔をしない */
+}
+
+#status-bar {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  text-shadow: 0 0 4px #000;
+}
+
+#story-box {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#message-box {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle, rgba(0,0,0,0.65), rgba(0,0,0,0.9));
+}
+
+#message-text {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+#message-subtext {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.hidden {
+  display: none;
+}

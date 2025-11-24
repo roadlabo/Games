@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>星空防衛隊 - 横スクロールシューティング</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
+
+    <div id="ui-overlay">
+      <div id="status-bar">
+        <span id="score-label">スコア: <span id="score">0</span></span>
+        <span id="life-label">ライフ: <span id="lives">3</span></span>
+        <span id="chapter-label">章: <span id="chapter">1</span></span>
+      </div>
+
+      <div id="story-box">
+        <p id="story-text">
+          「静かな山あいの町ツヤマ」。<br>
+          ある夜、空に謎のキューブ型ドローン群が現れた――。<br>
+          あなたは試作機「クウコ１号」のパイロット。<br>
+          町を守るため、出撃せよ！<br><br>
+          【操作】↑↓キー: 移動　Space: ショット　Enter: スタート
+        </p>
+      </div>
+
+      <div id="message-box" class="hidden">
+        <p id="message-text"></p>
+        <p id="message-subtext"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
