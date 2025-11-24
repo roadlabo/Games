@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シンプルテトリス</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <h1>ブラウザで遊べるシンプルテトリス</h1>
+    <div class="game-layout">
+      <div class="canvas-wrapper">
+        <canvas id="game" width="300" height="600" aria-label="テトリスフィールド"></canvas>
+        <div id="overlay" class="overlay" aria-live="assertive"></div>
+      </div>
+      <aside class="info-panel">
+        <div class="stat"><span>スコア</span><strong id="score">0</strong></div>
+        <div class="stat"><span>消したライン</span><strong id="lines">0</strong></div>
+        <div class="stat next">
+          <span>次のブロック</span>
+          <canvas id="next" width="120" height="120" aria-label="次のミノ"></canvas>
+        </div>
+        <div class="controls">
+          <h2>操作方法</h2>
+          <ul>
+            <li>← / → : 横移動</li>
+            <li>↑ : 右回転</li>
+            <li>↓ : ソフトドロップ</li>
+            <li>スペース : ハードドロップ</li>
+            <li>R : リスタート</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script src="main.js" defer></script>
+</body>
+</html>
