@@ -8,9 +8,21 @@ const scoreSpan = document.getElementById("score");
 const livesSpan = document.getElementById("lives");
 const chapterSpan = document.getElementById("chapter");
 const storyText = document.getElementById("story-text");
-const messageBox = document.getElementById("message-box");
+const startOverlay = document.getElementById("start-overlay");
 const messageText = document.getElementById("message-text");
 const messageSubtext = document.getElementById("message-subtext");
+
+function showOverlay() {
+  if (!startOverlay) return;
+  startOverlay.style.display = "flex";
+  startOverlay.classList.remove("hidden");
+}
+
+function hideOverlay() {
+  if (!startOverlay) return;
+  startOverlay.style.display = "none";
+  startOverlay.classList.add("hidden");
+}
 
 // ゲーム状態
 const GameState = {
@@ -112,14 +124,14 @@ window.addEventListener("keydown", (e) => {
   if (e.code === "Space") keys.Space = true;
 
   if (gameState === GameState.TITLE && e.key === "Enter") {
-    messageBox.classList.add("hidden");
+    hideOverlay();
     resetGame();
     gameState = GameState.PLAYING;
   } else if (
     (gameState === GameState.GAME_OVER || gameState === GameState.CLEAR) &&
     e.key === "Enter"
   ) {
-    messageBox.classList.add("hidden");
+    hideOverlay();
     resetGame();
     gameState = GameState.PLAYING;
   }
@@ -212,7 +224,7 @@ function updateChapterIfNeeded() {
     messageText.textContent = "任務完了！";
     messageSubtext.textContent =
       "町ツヤマは守られた。おつかれさま、パイロット。Enterキーで再出撃。";
-    messageBox.classList.remove("hidden");
+    showOverlay();
   }
 }
 
@@ -304,7 +316,7 @@ function update() {
           gameState = GameState.GAME_OVER;
           messageText.textContent = "ゲームオーバー";
           messageSubtext.textContent = "町ツヤマは謎のドローンに占拠された……。Enterキーで再挑戦。";
-          messageBox.classList.remove("hidden");
+          showOverlay();
         }
       }
     });
@@ -397,7 +409,7 @@ function gameLoop() {
 function initTitle() {
   messageText.textContent = "星空防衛隊：クウコ１号 出撃準備";
   messageSubtext.textContent = "Enterキーで出撃開始。↑↓で移動、Spaceでショット。";
-  messageBox.classList.remove("hidden");
+  showOverlay();
   updateStoryForChapter();
   scoreSpan.textContent = score.toString();
   livesSpan.textContent = lives.toString();
