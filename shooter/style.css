@@ -55,7 +55,7 @@ body {
   line-height: 1.6;
 }
 
-#message-box {
+#start-overlay {
   position: absolute;
   inset: 0;
   display: flex;
